@@ -1,0 +1,246 @@
+* {
+  text-align: center;
+  font-family: "Lucida Console", monospace;
+  background-color: #001bb7;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0%;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 412px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+h1 {
+  color: #ff8040;
+  font-size: 6rem;
+  background-color: #0046ff;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 70%;
+  margin: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 650;
+  box-shadow: 0px 7px 5px #00179c;
+}
+
+button {
+  color: #ff8040;
+  background-color: #0046ff;
+  border: 0px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 2.5rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0px 7px 5px #00179c;
+}
+
+.infobox {
+  display: flex;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.info {
+  font-size: 1.5rem;
+  width: 100%;
+  color: #ff8040;
+  background-color: #0046ff;
+  border: 0px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0px 7px 5px #00179c;
+}
+
+.info:hover {
+  color: #0046ff;
+  background-color: #ff8040;
+}
+
+.backButton {
+  font-size: 2rem;
+  width: 100%;
+  color: #ff8040;
+  background-color: #0046ff;
+  border: 0px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 15px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0px 7px 5px #00179c;
+}
+
+.backButton:hover {
+  color: #0046ff;
+  background-color: #ff8040;
+}
+
+button:hover {
+  color: #0046ff;
+  background-color: #ff8040;
+}
+
+.rule {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0046ff;
+  width: 90%;
+  border-radius: 15px;
+  height: 500px;
+  box-shadow: 0px 7px 5px #00179c;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gamerules {
+  background-color: #0046ff;
+  padding: 20px;
+  color: #ff8040;
+}
+
+.rule img {
+  width: 50%;
+  height: 50%;
+  margin-right: auto;
+}
+
+.log {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-left: auto;
+  margin-right: auto;
+  width: min(600px, 60%);
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cardholder {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #00179c;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 7px 5px #00179c;
+  transition: background-color 0s ease;
+}
+
+@keyframes drawNewCard {
+  0% {
+    transform: translate(-100px, 0) rotate(-30deg) scale(1.5);
+    opacity: 0;
+    filter: blur(5px);
+    width: 0;
+    font-size: 0rem;
+    z-index: 3;
+  }
+  60% {
+    transform: translate(0px, -30px) rotate(-5deg) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    width: 90px;
+    z-index: 1;
+  }
+}
+
+@keyframes restartButton {
+  0% {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.card {
+  animation: drawNewCard 0.6s ease-out forwards;
+  display: flex;
+  width: 90px;
+  height: 110px;
+  font-size: 4rem;
+  color: #0046ff;
+  background-color: #f5f1dc;
+  box-shadow: 0px 7px 5px #00179c;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: height 0.4s ease-in-out;
+}
+
+#playAgain {
+  animation: restartButton 0.4s ease-out forwards;
+}
+
+.card:hover {
+  height: 132px;
+}
+
+.card.orange {
+  color: #ff8040;
+}
+
+.card.dealer {
+  color: #ff8040;
+  background-color: #0046ff;
+}
+
+.log:hover {
+  color: #0046ff;
+  background-color: #f5f1dc;
+  font-size: 2.2rem;
+  width: min(600px, 60%);
+}
+
+.copyright {
+  color: #ff8040;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #00179c;
+  z-index: 3;
+}
+
+#copyrightText {
+  font-size: 1.4rem;
+  background-color: #00179c;
+}
