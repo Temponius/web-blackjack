@@ -1,5 +1,5 @@
 startButton = document.querySelector("#startButton");
-// document.body.appendChild(startButton);
+gameSpace = document.querySelector(".gamespace");
 
 let winCondition = false;
 
@@ -129,7 +129,7 @@ function updateCards(handContent, cardHolder) {
 
 function playBlackjack(firstAttempt) {
   if (firstAttempt === true) {
-    document.body.removeChild(startButton);
+    gameSpace.removeChild(startButton);
   }
   winCondition = false;
 
@@ -183,7 +183,7 @@ function playBlackjack(firstAttempt) {
         dealerWinMessage.textContent = "You win! (Higher Hand Count)";
         playerCardHolder.style.backgroundColor = "green";
         dealerWinMessage.style.color = "green";
-        document.body.appendChild(dealerWinMessage);
+        gameSpace.appendChild(dealerWinMessage);
         endGame();
       }
       if (findSum(playerHandContent) === findSum(dealerHandContent)) {
@@ -194,7 +194,7 @@ function playBlackjack(firstAttempt) {
         playerCardHolder.style.backgroundColor = "green";
         dealerCardHolder.style.backgroundColor = "green";
         dealerWinMessage.style.color = "green";
-        document.body.appendChild(dealerWinMessage);
+        gameSpace.appendChild(dealerWinMessage);
         endGame();
       }
     }
@@ -202,11 +202,11 @@ function playBlackjack(firstAttempt) {
 
   updateCards(playerHandContent, playerCardHolder);
   updateCards(modifiedDealerHandContent, dealerCardHolder);
-  document.body.appendChild(playerCardHolder);
-  document.body.appendChild(dealerCardHolder);
+  gameSpace.appendChild(playerCardHolder);
+  gameSpace.appendChild(dealerCardHolder);
 
-  document.body.appendChild(hitButton);
-  document.body.appendChild(standButton);
+  gameSpace.appendChild(hitButton);
+  gameSpace.appendChild(standButton);
 
   playerHand.textContent = `Your Hand : ${playerHandContent}. Sum: ${findSum(
     playerHandContent
@@ -218,7 +218,7 @@ function playBlackjack(firstAttempt) {
 
   currentCards.appendChild(playerHand);
   currentCards.appendChild(dealerHand);
-  document.body.appendChild(currentCards);
+  gameSpace.appendChild(currentCards);
 }
 
 function dealerRound(
@@ -235,7 +235,7 @@ function dealerRound(
     dealerWinMessage.textContent = "Dealer Wins (Higher Hand Count)";
     dealerCardHolder.style.backgroundColor = "green";
     dealerWinMessage.style.color = "red";
-    document.body.appendChild(dealerWinMessage);
+    gameSpace.appendChild(dealerWinMessage);
     dealerHand.textContent = `Dealer Hand : ${dealerHandContent}. Sum: ${findSum(
       dealerHandContent
     )}`;
@@ -251,7 +251,7 @@ function dealerRound(
       dealerHitMessage.className = "log";
       dealerHitMessage.textContent = "Dealer Hits";
       dealerHitMessage.style.color = "orange";
-      document.body.appendChild(dealerHitMessage);
+      gameSpace.appendChild(dealerHitMessage);
       updateCards(dealerHandContent, dealerCardHolder);
       if (findSum(dealerHandContent) > 21) {
         winCondition = true;
@@ -260,7 +260,7 @@ function dealerRound(
         dealerWinMessage.textContent = "Dealer Busts! (You Win)";
         playerCardHolder.style.backgroundColor = "green";
         dealerWinMessage.style.color = "green";
-        document.body.appendChild(dealerWinMessage);
+        gameSpace.appendChild(dealerWinMessage);
         endGame();
       } else if (findSum(dealerHandContent) > findSum(playerHandContent)) {
         winCondition = true;
@@ -269,7 +269,7 @@ function dealerRound(
         dealerWinMessage.textContent = "Dealer Wins (Higher Hand Count)";
         dealerCardHolder.style.backgroundColor = "green";
         dealerWinMessage.style.color = "red";
-        document.body.appendChild(dealerWinMessage);
+        gameSpace.appendChild(dealerWinMessage);
         console.log(winCondition);
         dealerHand.textContent = `Dealer Hand : ${dealerHandContent}. Sum: ${findSum(
           dealerHandContent
@@ -296,14 +296,14 @@ function hit(playerHandContent, blackjackDeck, playerHand) {
     loseMessage.textContent = "You bust!";
     loseMessage.style.color = "red";
     dealerCardHolder.style.backgroundColor = "green";
-    document.body.appendChild(loseMessage);
+    gameSpace.appendChild(loseMessage);
     endGame();
   } else {
     const hitMessage = document.createElement("div");
     hitMessage.className = "log";
     hitMessage.textContent = "You hit";
     hitMessage.style.color = "green";
-    document.body.appendChild(hitMessage);
+    gameSpace.appendChild(hitMessage);
   }
   console.log(winCondition);
   playerHand.textContent = `Your Hand : ${playerHandContent}. Sum: ${findSum(
@@ -316,7 +316,7 @@ function stand() {
   standMessage.className = "log";
   standMessage.textContent = "You stand";
   standMessage.style.color = "green";
-  document.body.appendChild(standMessage);
+  gameSpace.appendChild(standMessage);
 }
 
 function endGame() {
@@ -325,37 +325,9 @@ function endGame() {
   playAgainButton.textContent = "Play Again";
 
   playAgainButton.addEventListener("click", function () {
-    document.body.innerHTML = "";
-    const blackjackH1 = document.createElement("h1");
-    blackjackH1.textContent = "Blackjack Project";
-    document.body.appendChild(blackjackH1);
-
-    const infoBox = document.createElement("div");
-    infoBox.className = "infobox";
-    const infoButton = document.createElement("a");
-    infoButton.className = "info";
-    infoButton.href = "info.html";
-    infoButton.textContent = "Info";
-    const moreProjectsButton = document.createElement("a");
-    moreProjectsButton.className = "info";
-    moreProjectsButton.href = "https://github.com/Temponius";
-    moreProjectsButton.textContent = "More Projects";
-
-    infoBox.appendChild(infoButton);
-    infoBox.appendChild(moreProjectsButton);
-    document.body.appendChild(infoBox);
-
-    const copyrightFooter = document.createElement("footer");
-    copyrightFooter.className = "copyright";
-    copyrightFooterPar = document.createElement("p");
-    copyrightFooterPar.id = "copyrightText";
-    copyrightFooterPar.textContent = "Copyright © Brandon C";
-
-    copyrightFooter.appendChild(copyrightFooterPar);
-    document.body.appendChild(copyrightFooter);
-
+    gameSpace.innerHTML = "";
     playBlackjack();
   });
 
-  document.body.appendChild(playAgainButton);
+  gameSpace.appendChild(playAgainButton);
 }

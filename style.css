@@ -14,6 +14,10 @@ body {
   margin: 0%;
 }
 
+.gamespace {
+  margin: 5vh;
+}
+
 @media (max-width: 600px) {
   html {
     font-size: 8px;
@@ -233,11 +237,10 @@ button:hover {
 
 .copyright {
   color: #ff8040;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: #00179c;
-  z-index: 3;
+  align-content: center;
+  margin-top: 70vh;
 }
 
 #copyrightText {
