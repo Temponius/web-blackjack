@@ -1,7 +1,23 @@
+:root {
+  --color-black: oklch(10% 0.02 270);
+  --color-dark-gray: oklch(25% 0.02 270);
+  --color-gray: oklch(50% 0.02 270);
+  --color-light-gray: oklch(80% 0.02 270);
+  --color-soft: oklch(96% 0.01 270);
+  --color-white: oklch(97% 0.01 270);
+
+  --color-red: oklch(60% 0.25 30);
+  --color-red-bright: oklch(70% 0.28 30);
+  --color-red-dark: oklch(45% 0.2 30);
+
+  --color-red-muted: oklch(55% 0.12 30);
+  --color-border: oklch(20% 0.02 270);
+}
+
 * {
   text-align: center;
   font-family: "Lucida Console", monospace;
-  background-color: #001bb7;
+  background-color: var(--color-soft);
   vertical-align: middle;
   text-decoration: none;
 }
@@ -31,9 +47,9 @@ body {
 }
 
 h1 {
-  color: #ff8040;
+  color: var(--dark-gray);
   font-size: 6rem;
-  background-color: #0046ff;
+  background-color: var(--color-white);
   border-radius: 15px;
   padding: 10px;
   text-align: center;
@@ -42,20 +58,38 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   font-weight: 650;
-  box-shadow: 0px 7px 5px #00179c;
+  box-shadow: 0px 1px 5px var(--color-light-gray);
 }
 
 button {
-  color: #ff8040;
-  background-color: #0046ff;
+  color: var(--dark-gray);
+  background-color: var(--color-white);
   border: 0px;
+  position: relative;
   margin: 5px;
   padding: 10px;
   border-radius: 15px;
   font-size: 2.5rem;
   transition: background-color 0.2s ease;
   cursor: pointer;
-  box-shadow: 0px 7px 5px #00179c;
+  box-shadow: 0px 1px 5px var(--color-light-gray);
+  overflow: hidden;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    var(--color-red-bright),
+    var(--color-white)
+  ); /* Hover gradient */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .infobox {
@@ -69,64 +103,61 @@ button {
 
 .info {
   font-size: 1.5rem;
+  position: relative;
   width: 100%;
-  color: #ff8040;
-  background-color: #0046ff;
+  color: var(--dark-gray);
+  background-color: var(--color-white);
   border: 0px;
   margin: 5px;
   padding: 10px;
   border-radius: 15px;
   transition: background-color 0.2s ease;
   cursor: pointer;
-  box-shadow: 0px 7px 5px #00179c;
+  box-shadow: 0px 1px 5px var(--color-light-gray);
+  overflow: hidden;
 }
 
-.info:hover {
-  color: #0046ff;
-  background-color: #ff8040;
-}
-
-.backButton {
-  font-size: 2rem;
+.info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  color: #ff8040;
-  background-color: #0046ff;
-  border: 0px;
-  margin: 5px;
-  padding: 10px;
-  border-radius: 15px;
-  transition: background-color 0.2s ease;
-  cursor: pointer;
-  box-shadow: 0px 7px 5px #00179c;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    var(--color-red-bright),
+    var(--color-white)
+  ); /* Hover gradient */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.backButton:hover {
-  color: #0046ff;
-  background-color: #ff8040;
+.info:hover::before {
+  opacity: 0.25;
 }
 
-button:hover {
-  color: #0046ff;
-  background-color: #ff8040;
+button:hover::before {
+  opacity: 0.25;
 }
 
 .rule {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #0046ff;
+  background-color: var(--color-white);
   width: 90%;
   border-radius: 15px;
   height: 500px;
-  box-shadow: 0px 7px 5px #00179c;
+  box-shadow: 0px 1px 5px var(--color-light-gray);
   margin-left: auto;
   margin-right: auto;
 }
 
 .gamerules {
-  background-color: #0046ff;
+  background-color: var(--color-white);
   padding: 20px;
-  color: #ff8040;
+  color: var(--dark-gray);
 }
 
 .rule img {
@@ -154,14 +185,13 @@ button:hover {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #00179c;
+  background-color: var(--color-gray);
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
   margin-bottom: 25px;
   border-radius: 5px;
-  box-shadow: 0px 7px 5px #00179c;
-  transition: background-color 0s ease;
+  box-shadow: 0px 1px 5px var(--color-light-gray);
 }
 
 @keyframes drawNewCard {
@@ -202,9 +232,9 @@ button:hover {
   width: 90px;
   height: 110px;
   font-size: 4rem;
-  color: #0046ff;
-  background-color: #f5f1dc;
-  box-shadow: 0px 7px 5px #00179c;
+  color: var(--color-dark-gray);
+  background-color: var(--color-white);
+  box-shadow: 0px 1px 5px var(--color-light-gray);
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
@@ -220,30 +250,30 @@ button:hover {
 }
 
 .card.orange {
-  color: #ff8040;
+  color: var(--color-red);
 }
 
 .card.dealer {
-  color: #ff8040;
-  background-color: #0046ff;
+  color: var(--color-white);
+  background-color: var(--color-red);
+  box-shadow: 0px 1px 5px var(--color-red-muted);
 }
 
 .log:hover {
-  color: #0046ff;
-  background-color: #f5f1dc;
+  color: var(--color-red);
+  background-color: var(--color-white);
   font-size: 2.2rem;
   width: min(600px, 60%);
 }
 
 .copyright {
-  color: #ff8040;
   width: 100%;
-  background-color: #00179c;
+  background-color: var(--color-black);
   align-content: center;
   margin-top: 70vh;
 }
 
 #copyrightText {
   font-size: 1.4rem;
-  background-color: #00179c;
+  background-color: var(--color-white);
 }

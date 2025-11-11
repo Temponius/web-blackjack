@@ -181,8 +181,8 @@ function playBlackjack(firstAttempt) {
         const dealerWinMessage = document.createElement("div");
         dealerWinMessage.className = "log";
         dealerWinMessage.textContent = "You win! (Higher Hand Count)";
-        playerCardHolder.style.backgroundColor = "green";
-        dealerWinMessage.style.color = "green";
+        playerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+        dealerWinMessage.style.color = "oklch(70% 0.28 30)";
         gameSpace.appendChild(dealerWinMessage);
         endGame();
       }
@@ -191,9 +191,9 @@ function playBlackjack(firstAttempt) {
         const dealerWinMessage = document.createElement("div");
         dealerWinMessage.className = "log";
         dealerWinMessage.textContent = "Tie (Equal Hand Count)";
-        playerCardHolder.style.backgroundColor = "green";
-        dealerCardHolder.style.backgroundColor = "green";
-        dealerWinMessage.style.color = "green";
+        playerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+        dealerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+        dealerWinMessage.style.color = "oklch(70% 0.28 30)";
         gameSpace.appendChild(dealerWinMessage);
         endGame();
       }
@@ -213,8 +213,8 @@ function playBlackjack(firstAttempt) {
   )}`;
   dealerHand.textContent = `Dealer Hand : ${modifiedDealerHandContent}. Sum: ${dealerHandContent[0]}+??`;
 
-  playerHand.style.color = "#FF8040";
-  dealerHand.style.color = "#FF8040";
+  playerHand.style.color = "oklch(60% 0.25 30)";
+  dealerHand.style.color = "oklch(60% 0.25 30)";
 
   currentCards.appendChild(playerHand);
   currentCards.appendChild(dealerHand);
@@ -233,8 +233,8 @@ function dealerRound(
     const dealerWinMessage = document.createElement("div");
     dealerWinMessage.className = "log";
     dealerWinMessage.textContent = "Dealer Wins (Higher Hand Count)";
-    dealerCardHolder.style.backgroundColor = "green";
-    dealerWinMessage.style.color = "red";
+    dealerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+    dealerWinMessage.style.color = "oklch(45% 0.20 30)";
     gameSpace.appendChild(dealerWinMessage);
     dealerHand.textContent = `Dealer Hand : ${dealerHandContent}. Sum: ${findSum(
       dealerHandContent
@@ -250,7 +250,7 @@ function dealerRound(
       const dealerHitMessage = document.createElement("div");
       dealerHitMessage.className = "log";
       dealerHitMessage.textContent = "Dealer Hits";
-      dealerHitMessage.style.color = "orange";
+      dealerHitMessage.style.color = "oklch(45% 0.20 30)";
       gameSpace.appendChild(dealerHitMessage);
       updateCards(dealerHandContent, dealerCardHolder);
       if (findSum(dealerHandContent) > 21) {
@@ -258,8 +258,8 @@ function dealerRound(
         const dealerWinMessage = document.createElement("div");
         dealerWinMessage.className = "log";
         dealerWinMessage.textContent = "Dealer Busts! (You Win)";
-        playerCardHolder.style.backgroundColor = "green";
-        dealerWinMessage.style.color = "green";
+        playerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+        dealerWinMessage.style.color = "oklch(70% 0.28 30)";
         gameSpace.appendChild(dealerWinMessage);
         endGame();
       } else if (findSum(dealerHandContent) > findSum(playerHandContent)) {
@@ -267,8 +267,8 @@ function dealerRound(
         const dealerWinMessage = document.createElement("div");
         dealerHitMessage.className = "log";
         dealerWinMessage.textContent = "Dealer Wins (Higher Hand Count)";
-        dealerCardHolder.style.backgroundColor = "green";
-        dealerWinMessage.style.color = "red";
+        dealerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
+        dealerWinMessage.style.color = "oklch(45% 0.20 30)";
         gameSpace.appendChild(dealerWinMessage);
         console.log(winCondition);
         dealerHand.textContent = `Dealer Hand : ${dealerHandContent}. Sum: ${findSum(
@@ -294,15 +294,15 @@ function hit(playerHandContent, blackjackDeck, playerHand) {
     const loseMessage = document.createElement("div");
     loseMessage.className = "log";
     loseMessage.textContent = "You bust!";
-    loseMessage.style.color = "red";
-    dealerCardHolder.style.backgroundColor = "green";
+    loseMessage.style.color = "oklch(45% 0.20 30)";
+    dealerCardHolder.style.backgroundColor = "oklch(70% 0.28 30)";
     gameSpace.appendChild(loseMessage);
     endGame();
   } else {
     const hitMessage = document.createElement("div");
     hitMessage.className = "log";
     hitMessage.textContent = "You hit";
-    hitMessage.style.color = "green";
+    hitMessage.style.color = "oklch(70% 0.28 30)";
     gameSpace.appendChild(hitMessage);
   }
   console.log(winCondition);
@@ -315,7 +315,7 @@ function stand() {
   const standMessage = document.createElement("div");
   standMessage.className = "log";
   standMessage.textContent = "You stand";
-  standMessage.style.color = "green";
+  standMessage.style.color = "oklch(70% 0.28 30)";
   gameSpace.appendChild(standMessage);
 }
 
